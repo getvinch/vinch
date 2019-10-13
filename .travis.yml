@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - stable
+install:
+  - yarn
+script:
+  - yarn commitlint --from=HEAD~1
+  - yarn build
+  - CI=true yarn test
+  - yarn lint
+cache:
+  yarn: true
+  directories:
+    - node_modules
+notifications:
+  email: false
