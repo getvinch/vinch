@@ -6,6 +6,11 @@
 
 Vinch is an app for ideation.
 
+## Prerequisites
+
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+
 ## Installation
 
 Clone repository:
