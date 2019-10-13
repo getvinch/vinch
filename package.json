@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "react-scripts build",
+    "build": "npm-run-all --parallel build:*",
+    "build:vinch": "react-scripts build",
+    "build:storybook": "build-storybook -o build/storybook",
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix",
     "release": "standard-version --no-verify",
     "start": "react-scripts start",
+    "storybook": "start-storybook -p 9009 -s public",
     "test": "react-scripts test"
   },
   "dependencies": {
@@ -16,6 +19,7 @@
     "@types/node": "12.7.12",
     "@types/react": "^16.9.5",
     "@types/react-dom": "16.9.1",
+    "npm-run-all": "^4.1.5",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
@@ -24,13 +28,28 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@storybook/addon-actions": "^5.2.3",
+    "@storybook/addon-links": "^5.2.3",
+    "@storybook/addons": "^5.2.3",
+    "@storybook/react": "^5.2.3",
+    "awesome-typescript-loader": "^5.2.1",
     "coveralls": "^3.0.7",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.8",
     "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
+    "react-docgen-typescript-loader": "^3.3.0",
     "standard-version": "^6"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!src/serviceWorker.ts",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/*.stories.*"
+    ]
   },
   "browserslist": {
     "production": [
