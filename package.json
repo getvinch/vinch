@@ -7,6 +7,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix",
+    "release": "standard-version --no-verify",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
