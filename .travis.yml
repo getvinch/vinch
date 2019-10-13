@@ -6,8 +6,10 @@ install:
 script:
   - yarn commitlint --from=HEAD~1
   - yarn build
-  - CI=true yarn test
+  - CI=true yarn test --coverage
   - yarn lint
+after_success:
+  - cat coverage/lcov.info | yarn coveralls
 cache:
   yarn: true
   directories:
