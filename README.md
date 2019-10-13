@@ -1,6 +1,16 @@
 # vinch
 
-An idea creation app.
+[![Build Status](https://travis-ci.org/getvinch/vinch.svg?branch=master)](https://travis-ci.org/getvinch/vinch)
+[![Coverage Status](https://coveralls.io/repos/github/getvinch/vinch/badge.svg?branch=ci-travis)](https://coveralls.io/github/getvinch/vinch?branch=ci-travis)
+[![Dependency status](https://david-dm.org/getvinch/vinch.svg)](https://david-dm.org/getvinch/vinch)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/986629ff-987f-4ef0-b373-6767a4e5a79e/deploy-status)](https://app.netlify.com/sites/vinch/deploys)
+
+Vinch is an app for ideation.
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 
 ## Installation
 
@@ -23,6 +33,10 @@ $ yarn
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### `yarn lint`
+
+Lints the files. Run `yarn lint:fix` to fix any errors.
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.
@@ -30,6 +44,10 @@ Launches the test runner in the interactive watch mode.
 ### `yarn build`
 
 Builds the app for production to the `build` folder.
+
+### `yarn release`
+
+Creates a release by bumping the `package.json`, generating the `CHANGELOG.md`, and performing a Git commit and tag.
 
 ## Contributors
 

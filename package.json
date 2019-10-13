@@ -7,6 +7,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix",
+    "release": "standard-version --no-verify",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
@@ -28,7 +29,8 @@
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.8",
     "lint-staged": "^9.4.2",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "standard-version": "^6"
   },
   "browserslist": {
     "production": [
