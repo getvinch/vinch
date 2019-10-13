@@ -42,6 +42,15 @@
     "react-docgen-typescript-loader": "^3.3.0",
     "standard-version": "^6"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!src/serviceWorker.ts",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/*.stories.*"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
