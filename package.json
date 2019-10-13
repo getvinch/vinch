@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "build": "react-scripts build",
+    "build:storybook": "build-storybook -s public",
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix",
     "release": "standard-version --no-verify",
     "start": "react-scripts start",
+    "storybook": "start-storybook -p 9009 -s public",
     "test": "react-scripts test"
   },
   "dependencies": {
@@ -24,12 +26,18 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@storybook/addon-actions": "^5.2.3",
+    "@storybook/addon-links": "^5.2.3",
+    "@storybook/addons": "^5.2.3",
+    "@storybook/react": "^5.2.3",
+    "awesome-typescript-loader": "^5.2.1",
     "coveralls": "^3.0.7",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.8",
     "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
+    "react-docgen-typescript-loader": "^3.3.0",
     "standard-version": "^6"
   },
   "browserslist": {
