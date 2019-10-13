@@ -43,7 +43,15 @@ Launches the test runner in the interactive watch mode.
 
 ### `yarn build`
 
+Runs `yarn build:vinch` and `yarn build:storybook`.
+
+### `yarn build:vinch`
+
 Builds the app for production to the `build` folder.
+
+### `yarn build:storybook`
+
+Builds storybook to the `build/storybook` folder.
 
 ### `yarn release`
 
