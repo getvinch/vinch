@@ -57,6 +57,10 @@ Builds storybook to the `build/storybook` folder.
 
 Creates a release by bumping the `package.json`, generating the `CHANGELOG.md`, and performing a Git commit and tag.
 
+### `yarn storybook`
+
+Runs storybook on [http://localhost:9009](http://localhost:9009).
+
 ## Contributors
 
 [![Ben Budnevich](https://avatars.githubusercontent.com/u/2293095?s=50)](https://github.com/benox3) &nbsp;&nbsp;
