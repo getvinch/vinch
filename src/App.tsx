@@ -1,15 +1,17 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Header from './components/Header';
 import logo from './logo.svg';
 import { FirebaseProvider } from './components/Firebase';
 import { firebaseConfig } from './constants';
 import './App.css';
 
-const App: React.FC = () => {
+const App: React.FC = (): JSX.Element => {
   return (
     <>
       <CssBaseline />
       <FirebaseProvider config={firebaseConfig}>
+        <Header />
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
