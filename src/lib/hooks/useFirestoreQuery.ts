@@ -16,9 +16,8 @@ export default function useFirestoreQuery<QueryData>(
   useMemo(() => {
     if (!queryResult.isLoaded && !queryResult.isLoading) {
       setQueryResult(queryResult => ({ ...queryResult, isLoading: true }));
-      query
-        .get()
-        .then((querySnapshot: firebase.firestore.QuerySnapshot) => {
+      query.onSnapshot(
+        (querySnapshot: firebase.firestore.QuerySnapshot) => {
           setQueryResult(queryResult => ({
             ...queryResult,
             isLoaded: true,
@@ -27,8 +26,8 @@ export default function useFirestoreQuery<QueryData>(
               return { id: doc.id, ...doc.data() };
             }),
           }));
-        })
-        .catch(error => {
+        },
+        function(error) {
           console.log('Error getting documents: ', error);
           setQueryResult(queryResult => ({
             ...queryResult,
@@ -36,7 +35,8 @@ export default function useFirestoreQuery<QueryData>(
             isLoading: false,
             error,
           }));
-        });
+        },
+      );
     }
   }, [queryResult.isLoading, queryResult.isLoaded, query]);
 
