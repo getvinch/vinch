@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import firebase from 'firebase/app';
+import React, { useEffect, useState } from 'react';
+import * as firebase from 'firebase';
 
 export const FirebaseContext = React.createContext({
   firebase: {},
@@ -24,10 +24,18 @@ type FirebaseProviderProps = {
 };
 
 export function FirebaseProvider(props: FirebaseProviderProps) {
+  const [isInitialized, setIsInitialized] = useState(false);
+
   useEffect(() => {
     // Initialize Firebase
     firebase.initializeApp(props.config);
-  });
+    setIsInitialized(true);
+  }, [props.config]);
+
+  // TODO: Create spinner/loading bar while initializing datastore
+  if (!isInitialized) {
+    return null;
+  }
 
   return (
     <FirebaseContext.Provider value={{ firebase }}>
