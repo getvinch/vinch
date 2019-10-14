@@ -1,10 +1,10 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from './components/Header';
-import logo from './logo.svg';
 import { FirebaseProvider } from './components/Firebase';
 import { firebaseConfig } from './constants';
 import './App.css';
+import Boards from './components/Boards';
 
 const App: React.FC = () => {
   return (
@@ -12,22 +12,7 @@ const App: React.FC = () => {
       <CssBaseline />
       <FirebaseProvider config={firebaseConfig}>
         <Header />
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
+        <Boards />
       </FirebaseProvider>
     </>
   );
