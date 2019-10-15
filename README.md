@@ -5,7 +5,7 @@
 [![Dependency status](https://david-dm.org/getvinch/vinch.svg)](https://david-dm.org/getvinch/vinch)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/986629ff-987f-4ef0-b373-6767a4e5a79e/deploy-status)](https://app.netlify.com/sites/vinch/deploys)
 
-Vinch is an app for ideation.
+Ideate with vinch.
 
 ## Prerequisites
 
