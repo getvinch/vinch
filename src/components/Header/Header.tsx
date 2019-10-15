@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const Header: React.FC = (): JSX.Element => {
+const Header: React.FC = () => {
   const classes = useStyles();
 
   return (

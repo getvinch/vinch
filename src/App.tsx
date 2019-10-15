@@ -6,7 +6,7 @@ import { FirebaseProvider } from './components/Firebase';
 import { firebaseConfig } from './constants';
 import './App.css';
 
-const App: React.FC = (): JSX.Element => {
+const App: React.FC = () => {
   return (
     <>
       <CssBaseline />
