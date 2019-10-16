@@ -20,6 +20,7 @@ type FirebaseProviderProps = {
     appId: ConfigVariableValue;
     measurementId: ConfigVariableValue;
   };
+  renderLoading?: React.ReactNode;
   children: React.ReactNode;
 };
 
@@ -32,9 +33,8 @@ export function FirebaseProvider(props: FirebaseProviderProps) {
     setIsInitialized(true);
   }, [props.config]);
 
-  // TODO: Create spinner/loading bar while initializing datastore
   if (!isInitialized) {
-    return null;
+    return <>{props.renderLoading ? props.renderLoading : null}</>;
   }
 
   return (
