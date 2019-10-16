@@ -1,9 +1,7 @@
 import React from 'react';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 import useGroups from './useGroups';
-import useFirestoreQuery from './useFirestoreQuery';
 import { FirebaseProvider } from '../../components/Firebase';
-import { firebaseConfig } from '../../constants';
 
 const mockFirebaseConfig = {
   apiKey: 'mockApiKey',
