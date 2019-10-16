@@ -30,6 +30,7 @@ const MockComponent = () => {
 describe('FirebaseProvider', () => {
   it('should initialize firebase', () => {
     const div = document.createElement('div');
+
     act(() => {
       ReactDOM.render(
         <FirebaseProvider config={mockFirebaseConfig}>
