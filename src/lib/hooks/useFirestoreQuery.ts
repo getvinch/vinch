@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { QueryResult } from '../types';
 
 type QueryState<QueryDocumentData> = QueryResult<QueryDocumentData>;
@@ -13,7 +13,7 @@ export default function useFirestoreQuery<QueryData>(
     error: undefined,
   });
 
-  useMemo(() => {
+  useEffect(() => {
     if (!queryResult.isLoaded && !queryResult.isLoading) {
       setQueryResult(queryResult => ({ ...queryResult, isLoading: true }));
       query.onSnapshot(
