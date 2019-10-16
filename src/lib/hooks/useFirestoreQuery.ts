@@ -28,7 +28,7 @@ export default function useFirestoreQuery<QueryData>(
           }));
         },
         function(error) {
-          console.log('Error getting documents: ', error);
+          console.error('Error getting documents: ', error);
           setQueryResult(queryResult => ({
             ...queryResult,
             isLoaded: true,
