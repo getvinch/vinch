@@ -19,7 +19,7 @@ export default function useGroups(
   const { firebase } = useContext(FirebaseContext);
   const client = options.client || firebase;
   const db = client.firestore();
-  const query = db.collection('groups').where('type', '==', 'project');
+  const query = db.collection('groups').where('type', '==', 'board');
   const groups = useFirestoreQuery<GroupsDocumentData>(query);
 
   return groups;
