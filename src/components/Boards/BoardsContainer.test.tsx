@@ -1,6 +1,6 @@
 import React from 'react';
 import useGroups, { GroupState } from '../../lib/hooks/useGroups';
-import Boards from './Boards';
+import Boards from './BoardsContainer';
 import { render } from '@testing-library/react';
 
 jest.mock('../../lib/hooks/useGroups', () => jest.fn());
@@ -51,6 +51,6 @@ describe('Boards', () => {
     );
 
     const { getByText } = render(<Boards />);
-    expect(getByText(/mockId/)).toBeTruthy();
+    expect(getByText(/mockName/)).toBeTruthy();
   });
 });
