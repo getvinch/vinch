@@ -9,7 +9,7 @@ type GroupsDocumentData = {
   name: string;
 };
 
-type GroupState = QueryResult<GroupsDocumentData>;
+export type GroupState = QueryResult<GroupsDocumentData>;
 
 export default function useGroups(
   options: {
