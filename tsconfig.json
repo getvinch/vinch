@@ -16,5 +16,5 @@
     "jsx": "react"
   },
   "include": ["src"],
-  "exclude": ["**/*/*.test.*"]
+  "exclude": ["**/*/*.test.*", "**/*/*.stories.*"]
 }
