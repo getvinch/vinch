@@ -9,14 +9,13 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 export default function(props: {
   boards: {
     id: string;
-    type: string;
     name: string;
   }[];
 }) {
   return (
     <Paper>
       <List component="nav" aria-label="main mailbox folders">
-        {props.boards.map(({ id, type, name }) => (
+        {props.boards.map(({ id, name }) => (
           <ListItem key={id} button={true}>
             <ListItemIcon>
               <ListAltIcon />
