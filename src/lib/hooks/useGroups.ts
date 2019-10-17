@@ -11,9 +11,14 @@ type GroupsDocumentData = {
 
 type GroupState = QueryResult<GroupsDocumentData>;
 
-export default function useGroups(): GroupState {
+export default function useGroups(
+  options: {
+    client?: typeof firebase;
+  } = {},
+): GroupState {
   const { firebase } = useContext(FirebaseContext);
-  const db = firebase.firestore();
+  const client = options.client || firebase;
+  const db = client.firestore();
   const query = db.collection('groups').where('type', '==', 'project');
   const groups = useFirestoreQuery<GroupsDocumentData>(query);
 

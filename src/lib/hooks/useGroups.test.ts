@@ -1,7 +1,6 @@
-import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import useGroups from './useGroups';
-import { FirebaseProvider } from '../../components/Firebase';
+import firebase from 'firebase';
 
 const mockFirebaseConfig = {
   apiKey: 'mockApiKey',
@@ -15,18 +14,21 @@ const mockFirebaseConfig = {
 };
 
 describe('useGroups', () => {
+  beforeAll(async () => {
+    firebase.initializeApp(mockFirebaseConfig);
+    await firebase.firestore().enableNetwork();
+  });
+
+  afterAll(async () => {
+    // prevent jest from hanging:
+    // https://github.com/facebook/jest/issues/7287#issuecomment-488886582
+    await firebase.firestore().disableNetwork();
+  });
+
   it('returns data from useFireStoreQuery', () => {
-    const wrapper = ({ children }: { children?: React.ReactNode }) => (
-      <FirebaseProvider config={mockFirebaseConfig}>
-        {children}
-      </FirebaseProvider>
-    );
-    const { result } = renderHook(
-      () => {
-        return useGroups();
-      },
-      { wrapper },
-    );
+    const { result } = renderHook(() => {
+      return useGroups({ client: firebase });
+    });
 
     expect(result.current.isLoading).toBe(true);
     expect(result.current.isLoaded).toBe(false);
