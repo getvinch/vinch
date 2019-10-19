@@ -2,6 +2,7 @@
   "extends": ["react-app", "plugin:prettier/recommended"],
   "rules": {
     "no-unused-vars": ["error"],
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"]
   }
 }

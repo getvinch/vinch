@@ -10,7 +10,7 @@ export const FirebaseContext = React.createContext({
 
 type ConfigVariableValue = string | undefined;
 
-type FirebaseProviderProps = {
+interface FirebaseProviderProps {
   config: {
     apiKey: ConfigVariableValue;
     authDomain: ConfigVariableValue;
@@ -23,7 +23,7 @@ type FirebaseProviderProps = {
   };
   renderLoading?: React.ReactNode;
   children: React.ReactNode;
-};
+}
 
 export function FirebaseProvider(props: FirebaseProviderProps) {
   const [isInitialized, setIsInitialized] = useState(false);

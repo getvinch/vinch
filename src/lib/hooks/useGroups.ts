@@ -3,11 +3,11 @@ import { FirebaseContext } from '../../components/Firebase';
 import { QueryResult } from '../types';
 import useFirestoreQuery from './useFirestoreQuery';
 
-type GroupsDocumentData = {
+interface GroupsDocumentData {
   id: string;
   type: string;
   name: string;
-};
+}
 
 export type GroupState = QueryResult<GroupsDocumentData>;
 
