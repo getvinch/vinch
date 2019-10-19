@@ -28,6 +28,10 @@ const mockFirestore = () => {
 };
 
 describe('useFirestoreQuery', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   const db = mockFirestore();
 
   // TODO: Write a more complete mock of firestore
