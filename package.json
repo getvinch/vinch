@@ -35,6 +35,8 @@
     "@storybook/addon-links": "^5.2.3",
     "@storybook/addons": "^5.2.3",
     "@storybook/react": "^5.2.3",
+    "@testing-library/react": "^9.3.0",
+    "@testing-library/react-hooks": "^2.0.3",
     "awesome-typescript-loader": "^5.2.1",
     "coveralls": "^3.0.7",
     "eslint-config-prettier": "^6.4.0",
@@ -43,6 +45,7 @@
     "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
     "react-docgen-typescript-loader": "^3.3.0",
+    "react-test-renderer": "^16.9.0",
     "standard-version": "^6"
   },
   "jest": {
