@@ -6,12 +6,14 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
-export default function(props: {
+interface Props {
   boards: {
     id: string;
     name: string;
   }[];
-}) {
+}
+
+export default function(props: Props) {
   return (
     <Paper>
       <List component="nav" aria-label="main mailbox folders">
