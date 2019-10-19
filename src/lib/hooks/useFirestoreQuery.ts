@@ -18,14 +18,17 @@ export default function useFirestoreQuery<QueryData>(
       setQueryResult(queryResult => ({ ...queryResult, isLoading: true }));
       query.onSnapshot(
         (querySnapshot: firebase.firestore.QuerySnapshot) => {
-          setQueryResult(queryResult => ({
-            ...queryResult,
-            isLoaded: true,
-            isLoading: false,
-            data: querySnapshot.docs.map(doc => {
-              return { id: doc.id, ...doc.data() };
-            }),
-          }));
+          setQueryResult(
+            queryResult =>
+              ({
+                ...queryResult,
+                isLoaded: true,
+                isLoading: false,
+                data: querySnapshot.docs.map(doc => {
+                  return { id: doc.id, ...doc.data() };
+                }),
+              } as QueryResult<QueryData>),
+          );
         },
         function(error) {
           console.error('Error getting documents: ', error);
