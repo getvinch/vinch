@@ -21,7 +21,7 @@ interface FirebaseProviderProps {
     appId: ConfigVariableValue;
     measurementId: ConfigVariableValue;
   };
-  renderLoading?: React.ReactNode;
+  loaderNode?: React.ReactNode;
   children: React.ReactNode;
 }
 
@@ -35,7 +35,7 @@ export function FirebaseProvider(props: FirebaseProviderProps) {
   }, [props.config]);
 
   if (!isInitialized) {
-    return <>{props.renderLoading ? props.renderLoading : null}</>;
+    return <>{props.loaderNode ? props.loaderNode : null}</>;
   }
 
   return (
