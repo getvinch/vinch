@@ -30,8 +30,7 @@ describe('useGroups', () => {
       return useGroups({ client: firebase });
     });
 
-    expect(result.current.isLoading).toBe(true);
-    expect(result.current.isLoaded).toBe(false);
+    expect(result.current.loading).toBe(true);
     expect(result.current.error).toBe(undefined);
     expect(result.current.data).toEqual([]);
   });

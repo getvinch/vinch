@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FirebaseContext } from '../../components/Firebase';
 import { QueryResult } from '../types';
-import useFirestoreQuery from './useFirestoreQuery';
+import { useCollection } from 'react-firebase-hooks/firestore';
 
 interface GroupsDocumentData {
   id: string;
@@ -20,7 +20,15 @@ export default function useGroups(
   const client = options.client || firebase;
   const db = client.firestore();
   const query = db.collection('groups').where('type', '==', 'board');
-  const groups = useFirestoreQuery<GroupsDocumentData>(query);
+  const [snapshot, loading, error] = useCollection(query);
 
-  return groups;
+  return {
+    data: snapshot
+      ? snapshot.docs.map(doc => {
+          return { id: doc.id, ...doc.data() } as GroupsDocumentData;
+        })
+      : [],
+    loading,
+    error,
+  };
 }

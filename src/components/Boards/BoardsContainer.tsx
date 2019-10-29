@@ -3,9 +3,9 @@ import Boards from './Boards';
 import useGroups from '../../lib/hooks/useGroups';
 
 export default function BoardsContainer() {
-  const { data, isLoading, error } = useGroups();
+  const { data, loading, error } = useGroups();
 
-  if (isLoading) {
+  if (loading) {
     return <div>Loading...</div>;
   }
 
