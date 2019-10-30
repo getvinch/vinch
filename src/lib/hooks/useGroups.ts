@@ -20,7 +20,7 @@ export default function useGroups(
   const client = options.client || firebase;
   const db = client.firestore();
 
-  const currentUser = firebase.auth().currentUser;
+  const currentUser = client.auth().currentUser;
   if (!currentUser) {
     throw new Error('Not Logged In');
   }
