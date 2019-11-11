@@ -12,7 +12,7 @@ interface Props {
   name: string;
 }
 
-export default function DefaultListItem(props: Props) {
+export default function BoardTile(props: Props) {
   return (
     <Grid item xs={6} sm={3}>
       <Card>
