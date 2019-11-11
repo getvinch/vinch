@@ -1,5 +1,6 @@
 import React from 'react';
 import Boards from './Boards';
+import { noop } from '../../constants';
 
 export default {
   title: 'Boards',
@@ -25,6 +26,6 @@ export const Default = () => (
         name: 'Board D',
       },
     ]}
-    onAddBoard={() => {}}
+    onAddBoard={noop}
   />
 );
