@@ -26,9 +26,9 @@ export default function(props: Props) {
       <Divider />
       <Box m={theme.spacing(0.5)}>
         <Grid container spacing={4}>
-          {props.boards.map(board => {
-            return <BoardTile key={board.id} {...board} />;
-          })}
+          {props.boards.map(board => (
+            <BoardTile key={board.id} {...board} />
+          ))}
         </Grid>
       </Box>
     </>
