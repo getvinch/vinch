@@ -25,5 +25,6 @@ export const Default = () => (
         name: 'Board D',
       },
     ]}
+    onAddBoard={() => {}}
   />
 );
