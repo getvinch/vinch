@@ -37,10 +37,12 @@ export function FirebaseProvider(props: FirebaseProviderProps) {
     firebase
       .auth()
       .signInAnonymously()
-      .catch(function(error) {});
+      .catch(error => {
+        // TODO: handle auth error here.
+      });
 
     // Update logged in state
-    const unsubscribe = firebase.auth().onAuthStateChanged(function(user) {
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // User is signed in.
         setIsLoggedIn(true);
