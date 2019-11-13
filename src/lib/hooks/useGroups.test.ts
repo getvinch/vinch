@@ -1,21 +1,16 @@
 import { renderHook } from '@testing-library/react-hooks';
+import firebase from 'firebase/app';
+import { firebaseConfig } from '../../constants';
 import useGroups from './useGroups';
-import firebase from 'firebase';
-
-const mockFirebaseConfig = {
-  apiKey: 'mockApiKey',
-  authDomain: 'mockAuthDomain',
-  databaseURL: 'mockDatabaseURL',
-  projectId: 'mockProjectId',
-  storageBucket: 'mockStorageBucket',
-  messagingSenderId: 'mockMessageSenderId',
-  appId: 'mockAppId',
-  measurementId: 'mockMeasurementId',
-};
 
 describe('useGroups', () => {
   beforeAll(async () => {
-    firebase.initializeApp(mockFirebaseConfig);
+    firebase.initializeApp(firebaseConfig);
+    jest.spyOn(firebase, 'auth').mockReturnValue({
+      currentUser: {
+        uid: 'bar',
+      },
+    });
     await firebase.firestore().enableNetwork();
   });
 

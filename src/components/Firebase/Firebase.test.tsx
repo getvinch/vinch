@@ -1,25 +1,22 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import { FirebaseProvider, FirebaseContext } from './Firebase';
-import firebase from 'firebase/app';
 import { act } from 'react-dom/test-utils';
+import { firebaseConfig } from '../../constants';
+import { FirebaseContext, FirebaseProvider } from './Firebase';
 
 jest.mock('firebase/app', () => {
   return {
     initializeApp: jest.fn(),
+    auth: jest.fn().mockReturnValue({
+      signInAnonymously: jest.fn().mockReturnValue(new Promise(() => {})),
+      onAuthStateChanged: jest.fn(),
+      currentUser: true,
+      signOut: () => true,
+    }),
   };
 });
-
-const mockFirebaseConfig = {
-  apiKey: 'mockApiKey',
-  authDomain: 'mockAuthDomain',
-  databaseURL: 'mockDatabaseURL',
-  projectId: 'mockProjectId',
-  storageBucket: 'mockStorageBucket',
-  messagingSenderId: 'mockMessageSenderId',
-  appId: 'mockAppId',
-  measurementId: 'mockMeasurementId',
-};
 
 const MockComponent = () => {
   const { firebase } = useContext(FirebaseContext);
@@ -33,7 +30,7 @@ describe('FirebaseProvider', () => {
 
     act(() => {
       ReactDOM.render(
-        <FirebaseProvider config={mockFirebaseConfig}>
+        <FirebaseProvider config={firebaseConfig}>
           <MockComponent />
         </FirebaseProvider>,
         div,

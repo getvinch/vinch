@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { FirebaseContext } from '../../components/Firebase';
-import { QueryResult } from '../types';
+import { QueryResult, GroupType } from '../types';
 import { useCollection } from 'react-firebase-hooks/firestore';
 
 interface GroupsDocumentData {
@@ -19,10 +19,25 @@ export default function useGroups(
   const { firebase } = useContext(FirebaseContext);
   const client = options.client || firebase;
   const db = client.firestore();
-  const query = db.collection('groups').where('type', '==', 'board');
+
+  const currentUser = client.auth().currentUser;
+  if (!currentUser) {
+    throw new Error('Not Logged In');
+  }
+
+  const query = db
+    .collection('groups')
+    .where('roles.viewers', 'array-contains', currentUser.uid)
+    .where('type', '==', GroupType.Board)
+    .orderBy('createdAt', 'desc');
+
   const [snapshot, loading, error] = useCollection(query);
+  if (error) {
+    console.error(error);
+  }
 
   return {
+    snapshot,
     data: snapshot
       ? snapshot.docs.map(doc => {
           return { id: doc.id, ...doc.data() } as GroupsDocumentData;

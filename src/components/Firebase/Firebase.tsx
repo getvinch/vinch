@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/firestore';
 
 export const FirebaseContext = React.createContext({
@@ -27,14 +28,39 @@ interface FirebaseProviderProps {
 
 export function FirebaseProvider(props: FirebaseProviderProps) {
   const [isInitialized, setIsInitialized] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     // Initialize Firebase
     firebase.initializeApp(props.config);
+
+    // Authenticate
+    firebase
+      .auth()
+      .signInAnonymously()
+      .catch(error => {
+        // TODO: handle auth error here.
+      });
+
+    // Update logged in state
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        // User is signed in.
+        setIsLoggedIn(true);
+      } else {
+        // User is signed out.
+        setIsLoggedIn(false);
+      }
+    });
+
     setIsInitialized(true);
+
+    // Clean up
+    return () => {
+      unsubscribe();
+    };
   }, [props.config]);
 
-  if (!isInitialized) {
+  if (!isInitialized || !isLoggedIn) {
     return <>{props.loaderNode ? props.loaderNode : null}</>;
   }
 
