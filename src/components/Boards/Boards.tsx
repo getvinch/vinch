@@ -1,10 +1,10 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListAltIcon from '@material-ui/icons/ListAlt';
+import Box from '@material-ui/core/Box';
+import { useTheme } from '@material-ui/core/styles';
+import BoardTile from './components/BoardTile';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 interface Props {
   boards: {
@@ -14,18 +14,23 @@ interface Props {
 }
 
 export default function(props: Props) {
+  const theme = useTheme();
+
   return (
-    <Paper>
-      <List component="nav" aria-label="main mailbox folders">
-        {props.boards.map(({ id, name }) => (
-          <ListItem key={id} button={true}>
-            <ListItemIcon>
-              <ListAltIcon />
-            </ListItemIcon>
-            <ListItemText primary={name} />
-          </ListItem>
-        ))}
-      </List>
-    </Paper>
+    <>
+      <Box m={theme.spacing(0.5)}>
+        <Typography variant="h4" component="h1">
+          Boards
+        </Typography>
+      </Box>
+      <Divider />
+      <Box m={theme.spacing(0.5)}>
+        <Grid container spacing={4}>
+          {props.boards.map(board => (
+            <BoardTile key={board.id} {...board} />
+          ))}
+        </Grid>
+      </Box>
+    </>
   );
 }
