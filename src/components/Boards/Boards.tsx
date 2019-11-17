@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
+import * as S from './Boards.styles';
 import { useTheme } from '@material-ui/core/styles';
 import BoardTile from './components/BoardTile';
 import Grid from '@material-ui/core/Grid';
@@ -11,6 +12,7 @@ interface Props {
     id: string;
     name: string;
   }[];
+  onAddBoard: () => void;
 }
 
 export default function(props: Props) {
@@ -30,6 +32,18 @@ export default function(props: Props) {
             <BoardTile key={board.id} {...board} />
           ))}
         </Grid>
+        <Box display="flex" justifyContent="flex-end">
+          <S.AddButton
+            color="primary"
+            aria-label="add"
+            spacing={theme.spacing(2)}
+            onClick={props.onAddBoard}
+            variant="extended"
+          >
+            <S.AddButtonIcon spacing={theme.spacing(1)} />
+            Create New Board
+          </S.AddButton>
+        </Box>
       </Box>
     </>
   );

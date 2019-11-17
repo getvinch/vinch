@@ -4,6 +4,7 @@ import Boards from './BoardsContainer';
 import { render } from '@testing-library/react';
 
 jest.mock('../../lib/hooks/useGroups', () => jest.fn());
+jest.mock('../../lib/hooks/useUpdateGroups', () => jest.fn());
 
 describe('Boards', () => {
   it('renders loading when useGroups is loading', () => {
