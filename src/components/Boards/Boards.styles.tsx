@@ -8,7 +8,7 @@ type AddButtonProps = FabProps & {
 };
 
 const AddButton = styled(Fab)({
-  position: 'absolute',
+  position: 'fixed',
   bottom: props => props.spacing,
   right: props => props.spacing,
 }) as React.ComponentType<AddButtonProps>;
