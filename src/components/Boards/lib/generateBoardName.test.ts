@@ -5,9 +5,11 @@ describe('generateBoardName', () => {
   beforeAll(() => {
     MockDate.set('1/30/2000');
   });
+
   afterAll(() => {
     MockDate.reset();
   });
+
   it('generates a name based on date', () => {
     const generatedBoardName = generateBoardName();
     expect(generatedBoardName).toContain('1/30/2000');
