@@ -1,4 +1,4 @@
-export interface QueryResult<QueryDocumentData> {
+export interface CollectionQueryResult<QueryDocumentData> {
   data: ({ id: string } & (QueryDocumentData))[];
   snapshot?: firebase.firestore.QuerySnapshot;
   loading: boolean;
