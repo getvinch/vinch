@@ -19,7 +19,7 @@ export default function BoardContainer(props: Props) {
   }
 
   if (data && !loading && !error) {
-    return <Board data={data} />;
+    return <Board name={data.name} />;
   }
 
   return null;
