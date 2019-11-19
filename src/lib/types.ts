@@ -5,6 +5,13 @@ export interface CollectionQueryResult<QueryDocumentData> {
   error?: any;
 }
 
+export interface DocumentQueryResult<DocumentData> {
+  data?: { id: string } & (DocumentData);
+  snapshot?: firebase.firestore.DocumentSnapshot;
+  loading: boolean;
+  error?: any;
+}
+
 export enum GroupType {
   Board = 'board',
 }
