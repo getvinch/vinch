@@ -1,5 +1,6 @@
 import React from 'react';
-import useGroups, { GroupState } from '../../lib/hooks/useGroups';
+import useGroups, { UseGroupsResult } from '../../lib/hooks/useGroups';
+import { MemoryRouter } from 'react-router';
 import Boards from './BoardsContainer';
 import { render } from '@testing-library/react';
 
@@ -9,35 +10,41 @@ jest.mock('../../lib/hooks/useUpdateGroups', () => jest.fn());
 describe('Boards', () => {
   it('renders loading when useGroups is loading', () => {
     (useGroups as jest.Mock).mockImplementation(
-      (): GroupState => ({
+      (): UseGroupsResult => ({
         data: [],
         error: {},
-        isLoading: true,
-        isLoaded: false,
+        loading: true,
       }),
     );
 
-    const { getByText } = render(<Boards />);
+    const { getByText } = render(
+      <MemoryRouter>
+        <Boards />
+      </MemoryRouter>,
+    );
     expect(getByText(/Loading.../)).toBeTruthy();
   });
 
   it('renders error when useGroups returns error', () => {
     (useGroups as jest.Mock).mockImplementation(
-      (): GroupState => ({
+      (): UseGroupsResult => ({
         data: [],
         error: {},
-        isLoading: false,
-        isLoaded: true,
+        loading: false,
       }),
     );
 
-    const { getByText } = render(<Boards />);
+    const { getByText } = render(
+      <MemoryRouter>
+        <Boards />
+      </MemoryRouter>,
+    );
     expect(getByText(/Error Loading Boards/)).toBeTruthy();
   });
 
   it('renders component when useGroups returns data', () => {
     (useGroups as jest.Mock).mockImplementation(
-      (): GroupState => ({
+      (): UseGroupsResult => ({
         data: [
           {
             id: 'mockId',
@@ -46,12 +53,15 @@ describe('Boards', () => {
           },
         ],
         error: false,
-        isLoading: false,
-        isLoaded: true,
+        loading: false,
       }),
     );
 
-    const { getByText } = render(<Boards />);
+    const { getByText } = render(
+      <MemoryRouter>
+        <Boards />
+      </MemoryRouter>,
+    );
     expect(getByText(/mockName/)).toBeTruthy();
   });
 });
