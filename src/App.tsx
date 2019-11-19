@@ -8,6 +8,7 @@ import { firebaseConfig } from './constants';
 import './App.css';
 import Boards from './components/Boards';
 import Board from './components/Board';
+import ErrorPage from './components/ErrorPage';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <Header />
           <Route exact path="/" component={Boards} />
           <Route exact path="/boards/:boardId" component={Board} />
+          <Route exact path="/error" component={ErrorPage} />
         </Router>
       </FirebaseProvider>
     </>

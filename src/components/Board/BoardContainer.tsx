@@ -1,6 +1,7 @@
 import React from 'react';
 import Board from './Board';
 import useGroup from '../../lib/hooks/useGroup';
+import { Redirect } from 'react-router-dom';
 
 interface Props {
   match: {
@@ -13,7 +14,10 @@ interface Props {
 export default function BoardContainer(props: Props) {
   const { data, loading, error } = useGroup(props.match.params.boardId);
 
-  //TODO: Implement some sort of error handling
+  if (error) {
+    return <Redirect to="/error" />;
+  }
+
   if (data && !loading && !error) {
     return <Board data={data} />;
   }
