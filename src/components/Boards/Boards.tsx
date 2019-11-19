@@ -17,6 +17,7 @@ interface Props {
 
 export default function(props: Props) {
   const theme = useTheme();
+  const addButtonSpacing = theme.spacing(1);
 
   return (
     <>
@@ -26,7 +27,7 @@ export default function(props: Props) {
         </Typography>
       </Box>
       <Divider />
-      <Box m={theme.spacing(0.5)}>
+      <Box m={theme.spacing(0.5)} pb={addButtonSpacing}>
         <Grid container spacing={4}>
           {props.boards.map(board => (
             <BoardTile key={board.id} {...board} />
@@ -40,7 +41,7 @@ export default function(props: Props) {
             onClick={props.onAddBoard}
             variant="extended"
           >
-            <S.AddButtonIcon spacing={theme.spacing(1)} />
+            <S.AddButtonIcon spacing={addButtonSpacing} />
             Create New Board
           </S.AddButton>
         </Box>
