@@ -7,7 +7,7 @@ export default function ErrorPage() {
   return (
     <Typography component="div">
       <Box display="flex" height="100%" width="300" fontSize="h6.fontSize">
-        Oops... The link you are trying to reach can not be found
+        Oops... The link you are trying to reach cannot be found
       </Box>
       <Box>
         <Link to="/">Go Home</Link>
