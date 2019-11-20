@@ -1,6 +1,13 @@
-export interface QueryResult<QueryDocumentData> {
-  data: ({ id: string } & (QueryDocumentData))[];
+export interface CollectionQueryResult<QueryDocumentData> {
+  data: ({ id: string } & QueryDocumentData)[];
   snapshot?: firebase.firestore.QuerySnapshot;
+  loading: boolean;
+  error?: any;
+}
+
+export interface DocumentQueryResult<DocumentData> {
+  data?: { id: string } & DocumentData;
+  snapshot?: firebase.firestore.DocumentSnapshot;
   loading: boolean;
   error?: any;
 }

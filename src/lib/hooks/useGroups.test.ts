@@ -10,7 +10,7 @@ describe('useGroups', () => {
       currentUser: {
         uid: 'bar',
       },
-    });
+    } as firebase.auth.Auth);
     await firebase.firestore().enableNetwork();
   });
 

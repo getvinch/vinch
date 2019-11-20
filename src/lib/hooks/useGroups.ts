@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { FirebaseContext } from '../../components/Firebase';
-import { QueryResult, GroupType } from '../types';
+import { CollectionQueryResult, GroupType } from '../types';
 import { useCollection } from 'react-firebase-hooks/firestore';
 
 interface GroupsDocumentData {
@@ -9,13 +9,13 @@ interface GroupsDocumentData {
   name: string;
 }
 
-export type GroupState = QueryResult<GroupsDocumentData>;
+export type UseGroupsResult = CollectionQueryResult<GroupsDocumentData>;
 
 export default function useGroups(
   options: {
     client?: typeof firebase;
   } = {},
-): GroupState {
+): UseGroupsResult {
   const { firebase } = useContext(FirebaseContext);
   const client = options.client || firebase;
   const db = client.firestore();
