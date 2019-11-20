@@ -13,13 +13,13 @@ export default function Board(props: Props) {
   const theme = useTheme();
 
   return (
-    <>
+    <Box data-testid="board">
       <Box m={theme.spacing(0.5)}>
         <Typography variant="h4" component="h1">
           {props.name}
         </Typography>
       </Box>
       <Divider />
-    </>
+    </Box>
   );
 }
