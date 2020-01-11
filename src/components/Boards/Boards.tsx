@@ -7,7 +7,7 @@ import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import * as S from './Boards.styles';
-import BoardTile from './components/BoardTile';
+import Tile from '../Tile';
 
 interface Props {
   boards: {
@@ -32,7 +32,7 @@ export default function(props: Props) {
       <Box m={theme.spacing(0.5)} pb={addButtonSpacing}>
         <Grid container spacing={4}>
           {props.boards.map(board => (
-            <BoardTile key={board.id} {...board} />
+            <Tile key={board.id} {...board} />
           ))}
         </Grid>
         <Box display="flex" justifyContent="flex-end">

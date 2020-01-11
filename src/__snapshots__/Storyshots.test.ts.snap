@@ -519,7 +519,29 @@ Array [
 ]
 `;
 
-exports[`Storyshots Boards/BoardTile Default 1`] = `
+exports[`Storyshots ErrorPage Default 1`] = `
+<div
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <div
+    className="MuiBox-root MuiBox-root-317"
+  >
+    Oops... The link you are trying to reach cannot be found
+  </div>
+  <div
+    className="MuiBox-root MuiBox-root-318"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Go Home
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Tile Default 1`] = `
 <div
   className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-sm-3"
 >
@@ -544,7 +566,7 @@ exports[`Storyshots Boards/BoardTile Default 1`] = `
       type="button"
     >
       <a
-        className="Link-root-424"
+        className="Link-root-457"
         href="/boards/1"
         onClick={[Function]}
       >
@@ -626,28 +648,6 @@ exports[`Storyshots Boards/BoardTile Default 1`] = `
         </span>
       </button>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots ErrorPage Default 1`] = `
-<div
-  className="MuiTypography-root MuiTypography-body1"
->
-  <div
-    className="MuiBox-root MuiBox-root-530"
-  >
-    Oops... The link you are trying to reach cannot be found
-  </div>
-  <div
-    className="MuiBox-root MuiBox-root-531"
-  >
-    <a
-      href="/"
-      onClick={[Function]}
-    >
-      Go Home
-    </a>
   </div>
 </div>
 `;

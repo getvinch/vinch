@@ -6,14 +6,14 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Card from '@material-ui/core/Card';
-import * as S from './BoardTile.styles';
+import * as S from './Tile.styles';
 
 interface Props {
   id: string;
   name: string;
 }
 
-export default function BoardTile(props: Props) {
+export default function Tile(props: Props) {
   return (
     <Grid item xs={6} sm={3}>
       <Card>
