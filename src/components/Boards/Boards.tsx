@@ -32,7 +32,12 @@ export default function(props: Props) {
       <Box m={theme.spacing(0.5)} pb={addButtonSpacing}>
         <Grid container spacing={4}>
           {props.boards.map(board => (
-            <Tile key={board.id} {...board} />
+            <Tile
+              key={board.id}
+              id={board.id}
+              name={board.name}
+              link={`boards/${board.id}`}
+            />
           ))}
         </Grid>
         <Box display="flex" justifyContent="flex-end">

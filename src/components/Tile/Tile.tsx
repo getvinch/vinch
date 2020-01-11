@@ -11,24 +11,27 @@ import * as S from './Tile.styles';
 interface Props {
   id: string;
   name: string;
+  link?: string;
 }
 
 export default function Tile(props: Props) {
+  const headerNode = (
+    <CardHeader
+      avatar={<Avatar>{props.name ? props.name[0].toUpperCase() : ''}</Avatar>}
+      title={props.name}
+    />
+  );
+
   return (
     <Grid item xs={6} sm={3}>
       <Card>
-        <CardActionArea>
-          <S.MutedLink to={`boards/${props.id}`}>
-            <CardHeader
-              avatar={
-                <Avatar aria-label="recipe">
-                  {props.name ? props.name[0].toUpperCase() : ''}
-                </Avatar>
-              }
-              title={props.name}
-            />
-          </S.MutedLink>
-        </CardActionArea>
+        {props.link ? (
+          <CardActionArea>
+            <S.MutedLink to={props.link}>{headerNode}</S.MutedLink>
+          </CardActionArea>
+        ) : (
+          headerNode
+        )}
         <CardActions>
           <Button size="small">Edit</Button>
           <Button size="small" color="secondary">

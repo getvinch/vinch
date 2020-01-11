@@ -7,6 +7,7 @@ import { GroupType } from '../../lib/types';
 export default function BoardsContainer() {
   const { data, loading, error } = useGroups();
   const updateBoard = useUpdateGroups();
+
   function onAddBoard() {
     updateBoard({
       type: GroupType.Board,
