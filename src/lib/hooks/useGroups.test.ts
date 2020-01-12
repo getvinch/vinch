@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import firebase from 'firebase/app';
+
 import { firebaseConfig } from '../../constants';
 import useGroups from './useGroups';
 

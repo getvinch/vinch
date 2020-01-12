@@ -1,9 +1,10 @@
 import React from 'react';
-import Board from './Board';
-import useGroup from '../../lib/hooks/useGroup';
-import useCards from '../../lib/hooks/useCards';
 import { Redirect } from 'react-router-dom';
+
 import useAddCard from '../../lib/hooks/useAddCard';
+import useCards from '../../lib/hooks/useCards';
+import useGroup from '../../lib/hooks/useGroup';
+import Board from './Board';
 
 interface Props {
   match: {

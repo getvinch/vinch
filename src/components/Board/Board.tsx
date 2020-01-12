@@ -1,12 +1,11 @@
+import Box from '@material-ui/core/Box';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import { useTheme } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
 
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
-import { useTheme } from '@material-ui/core/styles';
 import { CardsDocumentData } from '../../lib/hooks/useCards';
-import Typography from '@material-ui/core/Typography';
-
 import Tile from '../Tile';
 import * as S from './Board.styles';
 

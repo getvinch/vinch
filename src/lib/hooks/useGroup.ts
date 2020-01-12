@@ -1,7 +1,8 @@
 import { useContext } from 'react';
+import { useDocument } from 'react-firebase-hooks/firestore';
+
 import { FirebaseContext } from '../../components/Firebase';
 import { DocumentQueryResult } from '../types';
-import { useDocument } from 'react-firebase-hooks/firestore';
 
 interface GroupDocumentData {
   id: string;

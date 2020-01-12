@@ -1,9 +1,10 @@
 import React from 'react';
-import useGroup, { UseGroupResult } from '../../lib/hooks/useGroup';
+
 import useCards, { UseCardsResult } from '../../lib/hooks/useCards';
-import BoardContainer from './BoardContainer';
-import { GroupType } from '../../lib/types';
+import useGroup, { UseGroupResult } from '../../lib/hooks/useGroup';
 import renderWithRouter from '../../lib/test/renderWithRouter';
+import { GroupType } from '../../lib/types';
+import BoardContainer from './BoardContainer';
 
 jest.mock('../../lib/hooks/useGroup');
 jest.mock('../../lib/hooks/useCards');

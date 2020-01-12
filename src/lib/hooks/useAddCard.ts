@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { FirebaseContext } from '../../components/Firebase';
 
 export default function(options?: { client?: typeof firebase }) {

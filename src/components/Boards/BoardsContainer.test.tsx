@@ -1,8 +1,9 @@
-import React from 'react';
-import useGroups, { UseGroupsResult } from '../../lib/hooks/useGroups';
-import { MemoryRouter } from 'react-router';
-import Boards from './BoardsContainer';
 import { render } from '@testing-library/react';
+import React from 'react';
+import { MemoryRouter } from 'react-router';
+
+import useGroups, { UseGroupsResult } from '../../lib/hooks/useGroups';
+import Boards from './BoardsContainer';
 
 jest.mock('../../lib/hooks/useGroups', () => jest.fn());
 jest.mock('../../lib/hooks/useUpdateGroups', () => jest.fn());

@@ -1,7 +1,7 @@
-import React from 'react';
-import { createMemoryHistory, MemoryHistory } from 'history';
-import { Router } from 'react-router';
 import { render } from '@testing-library/react';
+import { createMemoryHistory, MemoryHistory } from 'history';
+import React from 'react';
+import { Router } from 'react-router';
 
 export default function renderWithRouter(
   ui: React.ReactElement,
