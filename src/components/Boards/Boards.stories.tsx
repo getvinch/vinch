@@ -27,5 +27,6 @@ export const Default = () => (
       },
     ]}
     onAddBoard={noop}
+    onUpdateBoard={noop}
   />
 );
