@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -15,6 +15,7 @@ interface Props {
   id: string;
   name: string;
   link?: string;
+  onSubmit?: (args: { id: string; value: string }) => void;
 }
 
 export default function Tile(props: Props) {
@@ -22,6 +23,10 @@ export default function Tile(props: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState(props.name);
   const [nextName, setNextName] = useState(name);
+
+  useEffect(() => {
+    setName(props.name);
+  }, [props.name]);
 
   const handleOnEditClick = () => {
     setIsEditing(true);
@@ -38,6 +43,9 @@ export default function Tile(props: Props) {
   };
 
   const handleConfirmClick = () => {
+    if (props.onSubmit) {
+      props.onSubmit({ id: props.id, value: nextName });
+    }
     setName(nextName);
     setIsEditing(false);
   };

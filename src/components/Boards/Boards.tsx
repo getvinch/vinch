@@ -15,6 +15,7 @@ interface Props {
     name: string;
   }[];
   onAddBoard: () => void;
+  onUpdateBoard: (args: { id: string; value: string }) => void;
 }
 
 export default function(props: Props) {
@@ -37,6 +38,7 @@ export default function(props: Props) {
               id={board.id}
               name={board.name}
               link={`boards/${board.id}`}
+              onSubmit={props.onUpdateBoard}
             />
           ))}
         </Grid>
