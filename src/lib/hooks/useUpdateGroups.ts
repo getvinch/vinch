@@ -27,12 +27,7 @@ export default function(options?: { client?: typeof firebase }) {
     const ref = db.collection('groups');
 
     if (variables.id) {
-      await ref.doc(variables.id).set(
-        {
-          ...variables,
-        },
-        options,
-      );
+      await ref.doc(variables.id).set(variables, options);
 
       return ref.doc(variables.id);
     }
