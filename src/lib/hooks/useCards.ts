@@ -1,7 +1,8 @@
 import { useContext } from 'react';
+import { useCollection } from 'react-firebase-hooks/firestore';
+
 import { FirebaseContext } from '../../components/Firebase';
 import { CollectionQueryResult } from '../types';
-import { useCollection } from 'react-firebase-hooks/firestore';
 
 export interface CardsDocumentData {
   id: string;

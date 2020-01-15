@@ -1,8 +1,9 @@
 import React from 'react';
-import Boards from './Boards';
+
 import useGroups from '../../lib/hooks/useGroups';
 import useUpdateGroups from '../../lib/hooks/useUpdateGroups';
 import { GroupType } from '../../lib/types';
+import Boards from './Boards';
 
 export default function BoardsContainer() {
   const { data, loading, error } = useGroups();

@@ -1,6 +1,7 @@
 import React from 'react';
-import Board from './Board';
+
 import { noop } from '../../constants';
+import Board from './Board';
 
 export default {
   title: 'Board',
