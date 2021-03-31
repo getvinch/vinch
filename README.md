@@ -1,6 +1,6 @@
 # vinch
 
-[![Build Status](https://travis-ci.org/getvinch/vinch.svg?branch=master)](https://travis-ci.org/getvinch/vinch)
+[![build](https://github.com/getvinch/vinch/actions/workflows/build.yml/badge.svg)](https://github.com/getvinch/vinch/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/github/getvinch/vinch/badge.svg?branch=master)](https://coveralls.io/github/getvinch/vinch?branch=master)
 [![Dependency status](https://david-dm.org/getvinch/vinch.svg)](https://david-dm.org/getvinch/vinch)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/986629ff-987f-4ef0-b373-6767a4e5a79e/deploy-status)](https://app.netlify.com/sites/vinch/deploys)
